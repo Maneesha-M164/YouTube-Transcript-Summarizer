@@ -14,4 +14,4 @@ There are many available applications to do so. But this project aims to build a
 So basically, it will be a chrome extension, having an option to copy to current URL of the video being selected. After providing the link, it will access the transcript of the particular audio using the YouTube transcript API and then the transcript will be provided to a machine learning model will in return provide the summarized text of the transcript. The summarized text would be downloadable by the user.
 
 ## This repository contains all the files related to the chrome extension and the model of the project
-## Find the api used at : https://github.com/venisprajapati/youtube-transcript-summarizer-api
+
