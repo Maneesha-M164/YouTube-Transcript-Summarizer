@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
 .App {
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
   cursor: default;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #071124;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,19 +20,43 @@
   color: #61dafb;
 }
 
+h1 {
+  font-size: 20px;
+  /* text-decoration: underline; */
+}
+
+pre {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+label {
+  font-size: 14px;
+}
+
+.center-div {
+  text-align: center;
+}
+
 .input-1 {
-  margin-top: 12px;
+  margin-top: 8px;
   margin-left: 2vw;
   width: 48vh;
-  height: 1.8rem;
+  height: 1.2rem;
   color: #282c34;
-  font-size: large;
+  font-size: 14px;
 }
 
 .submit-1 {
-  margin-top: 12px;
+  margin-top: 8px;
   margin-left: 1.6vw;
-  font-size: larger;
+  font-size: 14px;
+  padding: 4px;
   border: 2px solid #282c34;
   border-radius: 8px;
   color: #282c34;
@@ -47,18 +74,24 @@
 }
 
 .btn-1 {
-  font-size: medium;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 3px;
   padding: 4px;
-  margin-right: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
   border: 2px solid #282c34;
   border-radius: 8px;
   color: #282c34;
   background-color: whitesmoke;
 }
 
+
 .arrow {
+  margin-top: 4px;
+  margin-right: 4px;
   border: solid white;
-  border-width: 0 4px 4px 0;
+  border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 4px;
 }
@@ -70,37 +103,48 @@
 
 .tab-list {
   border-bottom: 2px solid #ccc;
-  width: 60vw;
+  width: 89vw;
+  margin-bottom: 6px;
   padding-left: 0;
 }
 
 .tab-list-item {
+  margin: 5px;
   display: inline-block;
   list-style: none;
   margin-bottom: -1px;
-  padding: 0.5rem 0.75rem;
+  padding: 5px 5px;
 }
 
 .tab-list-active {
   background-color: white;
-  border: 4px solid #ccc;
   color: #282c34;
   font-weight: bolder;
-  border-radius: 4px;
-  border-width: 1px 1px 0 1px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.tab-content-1 {
+  width: 78vw;
+  text-align: justify;
+  word-wrap: break-word;
+  text-justify: inter-word;
+  display: inline-block;
+  justify-content: baseline;
+  padding: 1px 1px;
 }
 
 .tab-content {
-  width: 60vw;
-  height: 600px;
+  width: 78vw;
+  height: 260px;
+  font-size: 12px;
   text-align: justify;
+  word-wrap: break-word;
   text-justify: inter-word;
   overflow-y: scroll;
   overflow-x: visible;
   display: inline-block;
-  justify-content: baseline;
-  margin-bottom: -1px;
-  padding: 0.5rem 0.75rem;
+  padding: 1px 1px;
 }
 
 .footer {
@@ -113,10 +157,12 @@
 }
 
 .lds-ripple {
+  margin-top: 4px;
+  margin-right: 15px;
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .lds-ripple div {
@@ -146,4 +192,89 @@
     height: 72px;
     opacity: 0;
   }
+}
+
+.buttonDownload {
+	display: inline-block;
+	position: relative;
+	padding: 4px 16px;
+  margin-bottom: 4px;
+  
+  border-radius: 12px;
+  color: #282c34;
+  background-color: whitesmoke;
+  
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 14px;
+	text-align: center;
+	text-indent: 15px;
+}
+
+.buttonDownload:hover {
+	background-color: #282c34;
+	color: whitesmoke;
+}
+
+.buttonDownload:before, .buttonDownload:after {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 15px;
+	top: 52%;
+}
+
+/* Download box shape  */
+.buttonDownload:before {
+	width: 10px;
+	height: 2px;
+	border-style: solid;
+	border-width: 0 2px 2px;
+}
+
+/* Download arrow shape */
+.buttonDownload:after {
+	width: 0;
+	height: 0;
+	margin-left: 3px;
+	margin-top: -7px;
+  
+	border-style: solid;
+	border-color: transparent;
+	border-top-color: inherit;
+	
+	animation: downloadArrow 2s linear infinite;
+	animation-play-state: paused;
+}
+
+.buttonDownload:hover:before {
+	border-color: #4CC713;
+}
+
+.buttonDownload:hover:after {
+	border-top-color: #4CC713;
+	animation-play-state: running;
+}
+
+/* keyframes for the download icon anim */
+@keyframes downloadArrow {
+	/* 0% and 0.001% keyframes used as a hackish way of having the button frozen on a nice looking frame by default */
+	0% {
+		margin-top: -7px;
+		opacity: 1;
+	}
+	
+	0.001% {
+		margin-top: -15px;
+		opacity: 0;
+	}
+	
+	50% {
+		opacity: 1;
+	}
+	
+	100% {
+		margin-top: 0;
+		opacity: 0;
+	}
 }

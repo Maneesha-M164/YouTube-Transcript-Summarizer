@@ -1,6 +1,9 @@
 import braille from 'braille';
 import React from 'react';
 import Tabs from "./Tabs";
+import ET from "../transcripts/English.txt";
+import HT from "../transcripts/Hindi.txt";
+import GT from "../transcripts/Gujarati.txt";
 
 class BackendAPI extends React.Component {
 
@@ -27,7 +30,7 @@ class BackendAPI extends React.Component {
 			isLoaded: false
 		});
 
-		var FinalURL = `http://127.0.0.1:5000/api/?video_url=${this.state.name}`
+		var FinalURL = `http://127.0.0.1:5000/api/?video_url=${this.state.name}`;
 
 		fetch(FinalURL)
 			.then(res => res.json())
@@ -69,7 +72,7 @@ class BackendAPI extends React.Component {
 
 	stopAudio = () => {
 
-		window.speechSynthesis.pause();
+		window.speechSynthesis.cancel();
 	}
 
 	textToAudio = () => {
@@ -91,23 +94,33 @@ class BackendAPI extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Video URL:
-							<input className="input-1" type="url" value={this.state.value} name="name" onChange={this.handleChange} required autoComplete="off" />
 						</label>
-						<input className="submit-1" type="submit" value="Summarize Video" />
+						<input className="input-1" type="url" value={this.state.value} placeholder="Paste your YouTube Video link here." name="name" onChange={this.handleChange} required autoComplete="off" />
+						<input className="submit-1" type="submit" value="Summarize" />
 					</form>
-					<div className="lds-ripple"><div></div><div></div></div>
+					<center>
+						<div className="lds-ripple"><div></div><div></div></div>
+					</center>
 					<Tabs>
 						<div label="English">
-							English Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								English Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Hindi">
-							Hindi Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								Hindi Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Gujarati">
-							Gujarati Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								Gujarati Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Braille">
-							{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+							<div className="tab-content-1">
+								{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+							</div>
 						</div>
 					</Tabs>
 				</>
@@ -121,28 +134,55 @@ class BackendAPI extends React.Component {
 						<form onSubmit={this.handleSubmit}>
 							<label>
 								Video URL:
-								<input className="input-1" type="url" value={this.state.value} name="name" onChange={this.handleChange} required autoComplete="off" />
 							</label>
-							<input className="submit-1" type="submit" value="Summarize Video" />
+							<input className="input-1" type="url" value={this.state.value} placeholder="Paste your YouTube Video link here." name="name" onChange={this.handleChange} required autoComplete="off" />
+							<input className="submit-1" type="submit" value="Summarize" />
 						</form>
-						<p>{originalTextLength} <i className="arrow right"></i>{" "} {summarizedTextLength}</p>
-
-						<div>
-							<button className="btn-1" type="button" onClick={this.textToAudio}>Speak</button>
-							<button className="btn-1" type="button" onClick={this.stopAudio}>Stop</button>
-						</div>
+						<p>{originalTextLength}<i className="arrow right"></i>{summarizedTextLength}</p>
 						<Tabs>
 							<div label="English">
-								{englishTranscript}
+								<div className="tab-content">
+									<div>
+										<center>
+											<button className="btn-1" type="button" onClick={this.textToAudio}>Speak</button>
+											<button className="btn-1" type="button" onClick={this.stopAudio}>Stop</button>
+										</center>
+										<center>
+										<a href={ET} className="buttonDownload" download="English_Transcript.txt" type="button">Download</a>
+										</center>
+									</div>
+									{englishTranscript}
+								</div>
 							</div>
 							<div label="Hindi">
-								{hindiTranscript}
+								<div className="tab-content">
+									<div>
+										<center>
+										<a href={HT} className="buttonDownload" download="Hindi_Transcript.txt" type="button">Download</a>
+										</center>
+									</div>
+									{hindiTranscript}
+								</div>
 							</div>
 							<div label="Gujarati">
-								{gujaratiTranscript}
+								<div className="tab-content">
+									<div>
+										<center>
+										<a href={GT} className="buttonDownload" download="Gujarati_Transcript.txt" type="button">Download</a>
+										</center>
+									</div>
+									{gujaratiTranscript}
+								</div>
 							</div>
 							<div label="Braille">
-								{brailleText}
+								<div className="tab-content">
+									<div>
+										<center>
+										<a href={ET} className="buttonDownload" download="Braille_Transcript.txt" type="button">Download</a>
+										</center>
+									</div>
+									{brailleText}
+								</div>
 							</div>
 						</Tabs>
 					</>
@@ -156,9 +196,9 @@ class BackendAPI extends React.Component {
 						<form onSubmit={this.handleSubmit}>
 							<label>
 								Video URL:
-								<input className="input-1" type="url" value={this.state.value} name="name" onChange={this.handleChange} required autoComplete="off" />
 							</label>
-							<input className="submit-1" type="submit" value="Summarize Video" />
+							<input className="input-1" type="url" value={this.state.value} placeholder="Paste your YouTube Video link here." name="name" onChange={this.handleChange} required autoComplete="off" />
+							<input className="submit-1" type="submit" value="Summarize" />
 						</form>
 						<div>
 							<br />
@@ -166,16 +206,24 @@ class BackendAPI extends React.Component {
 						</div>
 						<Tabs>
 							<div label="English">
-								English Summarized Text Will be Shown Here...
+								<div className="tab-content-1">
+									English Summarized Text Will be Shown Here...
+								</div>
 							</div>
 							<div label="Hindi">
-								Hindi Summarized Text Will be Shown Here...
+								<div className="tab-content-1">
+									Hindi Summarized Text Will be Shown Here...
+								</div>
 							</div>
 							<div label="Gujarati">
-								Gujarati Summarized Text Will be Shown Here...
+								<div className="tab-content-1">
+									Gujarati Summarized Text Will be Shown Here...
+								</div>
 							</div>
 							<div label="Braille">
-								{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+								<div className="tab-content-1">
+									{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+								</div>
 							</div>
 						</Tabs>
 					</>
@@ -191,25 +239,34 @@ class BackendAPI extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							Video URL:
-							<input className="input-1" type="url" value={this.state.value} name="name" onChange={this.handleChange} required autoComplete="off" />
 						</label>
-						<input className="submit-1" type="submit" value="Summarize Video" />
+						<input className="input-1" type="url" value={this.state.value} placeholder="Paste your YouTube Video link here." name="name" onChange={this.handleChange} required autoComplete="off" />
+						<input className="submit-1" type="submit" value="Summarize" />
 					</form>
-					<p>Original Length Before Summarization <i className="arrow right"></i> Final Length After Summarization</p>
+					<p>Original Length<i className="arrow right"></i>Final Length</p>
 					<Tabs>
 						<div label="English">
-							English Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								English Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Hindi">
-							Hindi Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								Hindi Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Gujarati">
-							Gujarati Summarized Text Will be Shown Here...
+							<div className="tab-content-1">
+								Gujarati Summarized Text Will be Shown Here...
+							</div>
 						</div>
 						<div label="Braille">
-							{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+							<div className="tab-content-1">
+								{braille.toBraille("Braille Summarized Text Will be Shown Here...")}
+							</div>
 						</div>
 					</Tabs>
+
 				</>
 			);
 		}
