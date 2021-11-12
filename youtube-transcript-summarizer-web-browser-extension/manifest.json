@@ -1,7 +1,7 @@
 {
   "name": "Youtube Transcript Summarizer",
   "description": "Get Your Summarized text, within a click",
-  "version": "1.0",
+  "version": "2.0",
   "manifest_version": 3,
   "permissions": [],
   "action": {
