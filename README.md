@@ -19,15 +19,6 @@ Please make sure to update tests as appropriate.
 
 
 
-## Authors
-
-- [@Virag_Patel](https://www.github.com/19IT114)
-- [@Venis_Prajapati](https://www.github.com/venisprajapati)
-
-
-## Demo
-
-https://drive.google.com/file/d/1u5OVxgmmDYr7lzqwm5XKmbA7Dsp6WyCh/view?usp=sharing
 ## Features
 
 - Multiple Langauage Support (Hindi,English,Gujarati,Braille)
@@ -39,13 +30,44 @@ https://drive.google.com/file/d/1u5OVxgmmDYr7lzqwm5XKmbA7Dsp6WyCh/view?usp=shari
 
 ## Installation
 
-Clone the repository in your local machine.
+1. Clone the repository in your local machine.
 ```
 git clone https://github.com/19IT114/YouTube-Transcript-Summarizer.git
 ```
 
-```bash
-  npm install my-project
-  cd my-project
+2. To run the API, you need to set up a **Virtual Environment**. Go into youtube-transcript-summarizer-api folder, open command prompt and paste the following command.
 ```
-    
+python -m venv venv
+```
+
+3. Now that you got a Virtual Environment created, it's time to install all the dependencies. Use the following command.   
+```
+pip install -r requirements.txt
+```
+4. Now it's time to run the **API**.
+```
+python app.py
+```
+5. Now the API is set up to provide the response. Its time to start with frontend.
+```
+cd ..
+cd youtube-transcript-summarizer-frontend
+```
+6. Install all the required node modules.
+```
+npm install
+```
+7. You are all set to run the frontend.
+```
+npm start
+```
+
+
+## Demo of the Project
+
+https://drive.google.com/file/d/1u5OVxgmmDYr7lzqwm5XKmbA7Dsp6WyCh/view?usp=sharing
+## Authors
+
+- [@Virag_Patel](https://www.github.com/19IT114)
+- [@Venis_Prajapati](https://www.github.com/venisprajapati)
+
