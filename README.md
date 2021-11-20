@@ -35,12 +35,12 @@ Please make sure to update tests as appropriate.
 git clone https://github.com/19IT114/YouTube-Transcript-Summarizer.git
 ```
 
-2. To run the API, you need to set up a **Virtual Environment**. Go into youtube-transcript-summarizer-api folder, open command prompt and paste the following command.
+2. To run the API, you need to set up a **Virtual Environment**. Go into *youtube-transcript-summarizer-api* folder, open command prompt and paste the following command.
 ```
 python -m venv venv
 ```
 
-3. Now that you got a Virtual Environment created, it's time to install all the dependencies. Use the following command.   
+3. Now that you got a Virtual Environment created, it's time to install all the **dependencies**. Use the following command.   
 ```
 pip install -r requirements.txt
 ```
@@ -48,12 +48,12 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
-5. Now the API is set up to provide the response. Its time to start with frontend.
+5. Now the API is set up to provide the response. Its time to start with **frontend**.
 ```
 cd ..
 cd youtube-transcript-summarizer-frontend
 ```
-6. Install all the required node modules.
+6. Install all the required **node modules**.
 ```
 npm install
 ```
